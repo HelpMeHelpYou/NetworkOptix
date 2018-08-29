@@ -6,9 +6,11 @@
 class QtGuiApplication1 : public QMainWindow
 {
 	Q_OBJECT
-
 public:
 	QtGuiApplication1(QWidget *parent = Q_NULLPTR);
+
+public slots:
+	void onRecalcutateButtonClicked(void);
 
 private:
 	Ui::QtGuiApplication1Class ui;
