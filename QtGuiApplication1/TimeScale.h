@@ -30,6 +30,8 @@ protected:
 private:
 	QFrame * Tooltip;
 
+
+	QVector <QFrame*> _scale;
 	QVector <QLabel*> _hoursCounter;
 	QVector <BookMarkView*> _bookmarksLables;
 	QVector <QLabel*> _tooltipBookmarks;

@@ -46,6 +46,12 @@ TimeScale::TimeScale(QWidget * parent) : QWidget(parent)
 		QLabel * lb = new QLabel(this);
 		lb->setText(QObject::tr("%1").arg(i));
 		_hoursCounter.append(lb);
+		QFrame * fm = new QFrame(this);
+		fm->setFixedSize(2, 10);
+		fm->setFrameShape(QFrame::Box);
+		fm->setLineWidth(1);
+		_scale.append(fm);
+		
 	}
 
 
@@ -146,8 +152,9 @@ void TimeScale::resizeEvent(QResizeEvent * event)
 	for (int i = 0; i < sz; i++)
 	{
 
-		_hoursCounter.at(i)->move(_hoursCounterWidthOffset + increment * i,
+		_hoursCounter.at(i)->move(_hoursCounterWidthOffset + increment * i- _hoursCounter.at(i)->size().width()/2,
 			_hoursCounterHeightOffset);
+		_scale.at(i)->move(_hoursCounterWidthOffset + increment * i - 1, 5);
 	}
 
 	size_t bookMarksCount = bookmarks.size();
